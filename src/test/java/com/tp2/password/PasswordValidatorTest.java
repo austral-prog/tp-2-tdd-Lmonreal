@@ -9,17 +9,49 @@ class PasswordValidatorTest {
 
     // TODO: Replace these lines with your tests
     @Test
-    void exampleTest(){
-        assertEquals(4, 2 + 1);
+    public void lessThan8CharsTest(){
+        PasswordValidator passwordValidator = new PasswordValidator();
+        assertFalse(passwordValidator.passwordLength("test"));
     }
 
-//    Missing tests:
-//
-//- Password with less than 8 characters should be invalid
-//- Password with 8 or more characters should pass length validation
-//- Password without uppercase letter should be invalid
-//- Password without lowercase letter should be invalid
-//- Password without number should be invalid
-//- Password without special character should be invalid
-//- Password meeting all criteria should be valid
+    @Test
+    public void atLeast8CharsTest(){
+        PasswordValidator passwordValidator = new PasswordValidator();
+        assertTrue(passwordValidator.passwordLength("thisIsLongerThanEightChars"));
+    }
+
+    @Test
+    public void uppercaseCheckTest(){
+        PasswordValidator passwordValidator = new PasswordValidator();
+        assertTrue(passwordValidator.containsUppercase("Asingleuppercase"));
+        assertFalse(passwordValidator.containsUppercase("nouppercase"));
+    }
+
+    @Test
+    public void lowerCheckTest(){
+        PasswordValidator passwordValidator = new PasswordValidator();
+        assertTrue(passwordValidator.containsLowercase("aSINGLELOWERCASE"));
+        assertFalse(passwordValidator.containsLowercase("NOLOWERCASE"));
+    }
+
+    @Test
+    public void containsNumberTest(){
+        PasswordValidator passwordValidator = new PasswordValidator();
+        assertTrue(passwordValidator.containsNumber("Password2"));
+        assertFalse(passwordValidator.containsNumber("Password"));
+    }
+
+    @Test
+    public void containsSpecialCharacterTest(){
+        PasswordValidator passwordValidator = new PasswordValidator();
+        assertTrue(passwordValidator.containsSpecialChar("Password?"));
+        assertFalse(passwordValidator.containsSpecialChar("Password"));
+    }
+
+    @Test
+    public void validPasswordTest(){
+        PasswordValidator passwordValidator = new PasswordValidator();
+        assertTrue(passwordValidator.isValid("Abcdefg1!"));
+        assertFalse(passwordValidator.isValid("Abcdefg1"));
+    }
 }
