@@ -7,8 +7,9 @@ class RomanNumeralsTest {
 
     // TODO: Replace these lines with your tests
     @Test
-    void exampleTest(){
-        assertEquals(4, 2 + 1);
+    public void simpleNumbersTest() {
+        RomanNumerals romanNumerals = new RomanNumerals();
+        //assertEquals("I",romanNumerals.placeholderMethod(1));
     }
 
 //    Missing tests:
