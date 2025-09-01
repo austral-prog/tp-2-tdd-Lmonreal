@@ -5,27 +5,51 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RomanNumeralsTest {
 
-    // TODO: Replace these lines with your tests
     @Test
     public void simpleNumbersTest() {
         RomanNumerals romanNumerals = new RomanNumerals();
-        //assertEquals("I",romanNumerals.placeholderMethod(1));
+        assertEquals("I", romanNumerals.convertDecimalToRoman(1));
+        assertEquals("V", romanNumerals.convertDecimalToRoman(5));
+        assertEquals("X", romanNumerals.convertDecimalToRoman(10));
     }
 
-//    Missing tests:
-//
-//- Convert 1 to "I"
-//- Convert 5 to "V"
-//- Convert 10 to "X"
-//- Convert 4 to "IV" (subtraction case)
-//- Convert 9 to "IX" (subtraction case)
-//- Convert 40 to "XL"
-//- Convert 50 to "L"
-//- Convert 90 to "XC"
-//- Convert 100 to "C"
-//- Convert 400 to "CD"
-//- Convert 500 to "D"
-//- Convert 900 to "CM"
-//- Convert 1000 to "M"
-//- Convert complex numbers like 1994 to "MCMXCIV"
+    @Test
+    public void simpleSubtractionTest() {
+        RomanNumerals romanNumerals = new RomanNumerals();
+        assertEquals("IV", romanNumerals.convertDecimalToRoman(4));
+        assertEquals("IX", romanNumerals.convertDecimalToRoman(9));
+    }
+
+    @Test
+    public void simpleTensNumbersTest() {
+        RomanNumerals romanNumerals = new RomanNumerals();
+        assertEquals("XL", romanNumerals.convertDecimalToRoman(40));
+        assertEquals("L", romanNumerals.convertDecimalToRoman(50));
+        assertEquals("XC", romanNumerals.convertDecimalToRoman(90));
+    }
+
+    @Test
+    public void simpleHundredsNumbersTest() {
+        RomanNumerals romanNumerals = new RomanNumerals();
+        assertEquals("C", romanNumerals.convertDecimalToRoman(100));
+        assertEquals("CD", romanNumerals.convertDecimalToRoman(400));
+        assertEquals("D", romanNumerals.convertDecimalToRoman(500));
+        assertEquals("CM", romanNumerals.convertDecimalToRoman(900));
+    }
+
+    @Test
+    public void simpleThousandsNumbersTest() {
+        RomanNumerals romanNumerals = new RomanNumerals();
+        assertEquals("M", romanNumerals.convertDecimalToRoman(1000));
+        assertEquals("MM", romanNumerals.convertDecimalToRoman(2000));
+    }
+
+    @Test
+    public void complexNumbersTest() {
+        RomanNumerals romanNumerals = new RomanNumerals();
+        assertEquals("MCMXCIV", romanNumerals.convertDecimalToRoman(1994));
+        assertEquals("MMDXCIII", romanNumerals.convertDecimalToRoman(2593));
+        assertEquals("MMMCMXCIX", romanNumerals.convertDecimalToRoman(3999));
+    }
+
 }
