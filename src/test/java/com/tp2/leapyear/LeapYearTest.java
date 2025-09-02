@@ -15,7 +15,8 @@ class LeapYearTest {
     @Test
     public void NotDivisibleByOneHundredTest(){
         LeapYear leapYear = new LeapYear();
-        assertTrue(leapYear.isNotDivisibleByOneHundred(1700));
+        assertFalse(leapYear.isNotDivisibleByOneHundred(1700));
+        assertTrue(leapYear.isNotDivisibleByOneHundred(1732));
     }
 
     @Test

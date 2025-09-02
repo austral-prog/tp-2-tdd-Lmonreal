@@ -11,7 +11,7 @@ public class LeapYear {
     }
 
     public boolean isNotDivisibleByOneHundred(int year) {
-        return year % 100 != 0;
+        return !(year % 100 == 0);
     }
 
     public boolean isDivisibleByFourHundred(int year) {
